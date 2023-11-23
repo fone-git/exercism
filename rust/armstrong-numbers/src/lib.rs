@@ -9,6 +9,8 @@ pub fn is_armstrong_number(num: u32) -> bool {
         let last_digit = remainder % 10;
         remainder /= 10;
         sum = match sum.checked_add(last_digit.pow(num_digits)) {
+            // We can always raise `last_digit` to `num_digits` as max `num_digits` will be 10 and 9^10 is less than 2^32
+            // Max `num_digits` is 10 because 2^32 is 10 digits
             Some(x) => x,
             None => return false,
         }
