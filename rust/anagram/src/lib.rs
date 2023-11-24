@@ -14,8 +14,8 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
     result
 }
 
-fn key_from_str(s: &str) -> Vec<u8> {
-    let mut result = s.as_bytes().to_vec();
+fn key_from_str(s: &str) -> Vec<char> {
+    let mut result: Vec<char> = s.chars().collect();
     result.sort_unstable();
     result
 }
