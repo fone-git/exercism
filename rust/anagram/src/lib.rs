@@ -1,5 +1,21 @@
 use std::collections::HashSet;
 
 pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'a str> {
-    todo!("For the '{word}' word find anagrams among the following words: {possible_anagrams:?}");
+    let mut result = HashSet::new();
+    let lower_word = word.to_lowercase();
+    let key_word = key_from_str(&lower_word);
+    for &possible_anagram in possible_anagrams {
+        let lower_possible_anagram = possible_anagram.to_lowercase();
+        if lower_possible_anagram != lower_word && key_word == key_from_str(&lower_possible_anagram)
+        {
+            result.insert(possible_anagram);
+        }
+    }
+    result
+}
+
+fn key_from_str(s: &str) -> Vec<u8> {
+    let mut result = s.as_bytes().to_vec();
+    result.sort_unstable();
+    result
 }
