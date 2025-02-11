@@ -1,22 +1,10 @@
 class Lasagna
 {
-    public int ExpectedMinutesInOven()
-    {
-        return 40;
-    }
+    public int ExpectedMinutesInOven() => 40;
 
-    public int RemainingMinutesInOven(int actual)
-    {
-        return this.ExpectedMinutesInOven() - actual;
-    }
+    public int RemainingMinutesInOven(int actual) => this.ExpectedMinutesInOven() - actual;
 
-    public int PreparationTimeInMinutes(int layerCount)
-    {
-        return layerCount * 2;
-    }
+    public int PreparationTimeInMinutes(int layerCount) => layerCount * 2;
 
-    public int ElapsedTimeInMinutes(int layers, int ovenTime)
-    {
-        return this.PreparationTimeInMinutes(layers) + ovenTime;
-    }
+    public int ElapsedTimeInMinutes(int layers, int ovenTime) => this.PreparationTimeInMinutes(layers) + ovenTime;
 }
